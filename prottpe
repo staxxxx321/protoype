@@ -1,0 +1,127 @@
+// This is the homepage component using TypeScript and Tailwind CSS for styling.
+import React from 'react';
+
+const Home: React.FC = () => {
+  return (
+    <div className="container mx-auto">
+      <h1 className="text-3xl font-bold underline">Homepage</h1>
+      {/* Content goes here */}
+    </div>
+  );
+};
+export default Home;
+
+// This is the dashboard component with a button that triggers a mock function.
+import React from 'react';
+
+const Dashboard: React.FC = () => {
+  return (
+    <div className="container mx-auto">
+      <h1 className="text-3xl font-bold underline">Dashboard</h1>
+      <button onClick={() => alert('Navigate to details')}>View Details</button>
+      {/* Additional content and functionality can be added here */}
+    </div>
+  );
+};
+export default Dashboard;
+
+// This component lists the offerings or provides navigation to individual offering details.
+
+import React from 'react';
+const Offerings: React.FC = () => {
+  return (
+    <div className="container mx-auto">
+      <h1 className="text-3xl font-bold underline">Offerings</h1>
+      {/* Content listing offerings goes here */}
+    </div>
+  );
+};
+export default Offerings;
+
+
+
+
+
+// This component displays details for an individual offering using dynamic routing.
+import React from 'react';
+
+import { useRouter } from 'next/router';
+const OfferingDetails: React.FC = () => {
+  const router = useRouter();
+  const { id } = router.query; // Capture the dynamic part from the URL
+  return (
+    <div className="container mx-auto">
+      <h1 className="text-3xl font-bold underline">Details for Offering {id}</h1>
+      {/* Display the details for the specific offering */}
+    </div>
+  );
+};
+export default OfferingDetails;
+
+// This component is used to display charts, graphs, or data insights.
+import React from 'react';
+
+const Insights: React.FC = () => {
+  return (
+    <div className="container mx-auto">
+      <h1 className="text-3xl font-bold underline">Insights</h1>
+      {/* Charts, graphs, and data insights go here */}
+    </div>
+  );
+};
+export default Insights;
+
+// This component provides options to change user settings.
+import React from 'react';
+
+const Settings: React.FC = () => {
+  return (
+    <div className="container mx-auto">
+      <h1 className="text-3xl font-bold underline">Settings</h1>
+      {/* Options to change user settings */}
+    </div>
+  );
+};
+export default Settings;
+
+
+
+// Tailwind CSS configuration file where you can customize Tailwind's default styles.
+
+module.exports =
+ {
+  theme: {
+    extend: {
+      colors: {
+        'brand-blue': '#1992d4',
+        // Add more custom colors here
+      },
+    },
+  },
+  plugins: [],
+};
+
+/* This is the global stylesheet where Tailwind CSS layers are imported */
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+// The custom App component that wraps all page components and applies global styles.
+
+import '../styles/globals.css';
+const MyApp: React.FC = ({ Component, pageProps }) => {
+  return <Component {...pageProps} />;
+};
+export default MyApp;
+
+// Example API route that returns a simple JSON response.
+import { NextApiRequest, NextApiResponse } from 'next';
+
+const handler = (req: NextApiRequest, res: NextApiResponse) => {
+  res.status(200).json({ message: 'Hello World!' });
+};
+export default handler;
+
+
+
